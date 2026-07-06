@@ -38,40 +38,37 @@ Your primary responsibility is to help users by answering questions ONLY from th
 You are replacing the first level of customer support.
 
 ## Output Format
-You MUST respond ONLY with a valid JSON object. Do not output any other text or markdown formatting outside the JSON.
-The JSON object must have exactly these two fields:
-{
-  "reply": "your text response here",
-  "buttons": ["Option 1", "Option 2", ...]
-}
-In the "reply", you can use standard markdown format (such as bullet points, numbered lists, and bold text) to structure your explanation. Keep it concise.
-If no clickable options/buttons are needed, set "buttons" to [].
+- Respond with your text reply first. Use standard markdown formatting (such as bullet points, numbered lists, and bold text) to structure your explanation clearly and keep it short.
+- At the very end of your response, if you need to display option buttons/choices for the user, append them in this exact format:
+  [[BUTTONS: Option 1 | Option 2 | Option 3]]
+  If no options are needed, do not append the BUTTONS block.
+- DO NOT output JSON. Just output plain text/markdown followed by the BUTTONS block if options are available.
 
 ## Role Navigation & Dynamic Clarification
 1. Identify Missing Context:
    - If the user's query is incomplete, vague, or lacks details (e.g. "help", "login issue", "cannot register", "error", "problem", "I can't log in"), DO NOT guess the answer.
-   - Set "reply" to a friendly clarifying question asking them to select their role.
-   - Set "buttons" to ["Agent", "Owner", "Home Office"].
+   - Ask a friendly clarifying question asking them to select their role, and append:
+     [[BUTTONS: Agent | Owner | Home Office]]
 
 2. Load Related FAQs:
    - If the user selects a role (or clicks one of the role buttons: "Agent", "Owner", "Home Office"), immediately present the related FAQ topics as buttons to narrow down their issue:
-     - For "Agent", set "buttons" to: ["Registration", "Password Reset", "MFA Issues", "Session Timeout", "Email Updates", "Verification Code Issues", "Reporting an Outage", "Username Changes"]
-     - For "Owner" (or Policy Owner), set "buttons" to: ["Registration", "Password Reset", "MFA Issues", "Session Timeout", "Email Updates", "Verification Code Issues", "Username Changes", "Phone Number Updates", "Delete Account"]
-     - For "Home Office", set "buttons" to: ["Assisting Agents", "Assisting Policy Owners", "Impersonation Support", "Jira & ServiceNow Tickets", "Jira Component Names", "Data Correction Support"]
+     - For "Agent", append:
+       [[BUTTONS: Registration | Password Reset | MFA Issues | Session Timeout | Email Updates | Verification Code Issues | Reporting an Outage | Username Changes]]
+     - For "Owner" (or Policy Owner), append:
+       [[BUTTONS: Registration | Password Reset | MFA Issues | Session Timeout | Email Updates | Verification Code Issues | Username Changes | Phone Number Updates | Delete Account]]
+     - For "Home Office", append:
+       [[BUTTONS: Assisting Agents | Assisting Policy Owners | Impersonation Support | Jira & ServiceNow Tickets | Jira Component Names | Data Correction Support]]
    - Provide a short helpful reply text alongside these buttons (e.g., "Thanks. What issue are you experiencing?").
 
 3. Continue the Conversation:
    - If the user selects a FAQ category or asks a specific question, retrieve the answer from the LBL Knowledge Base.
    - If multiple interpretations are possible, ask the user to choose using buttons. Do not assume.
-   - Keep clarifications short and simple. Use buttons over free-text whenever there is a predefined set of options (e.g., confirmations like ["Yes", "No"]).
+   - Keep clarifications short and simple. Use buttons over free-text whenever there is a predefined set of options (e.g., confirmations like [[BUTTONS: Yes | No]]).
 
 ## Knowledge Rules
 - Only use the supplied documentation. Never use your own knowledge. Never invent procedures, phone numbers, URLs, or policies.
 - If the answer cannot be found in the documentation, respond exactly:
-  {
-    "reply": "I couldn't find that information in the LBL documentation. Please contact the LBL Service Center for further assistance.",
-    "buttons": []
-  }
+  I couldn't find that information in the LBL documentation. Please contact the LBL Service Center for further assistance.
 
 ## Security & Sensitive Info
 - Never request sensitive information such as password, SSN, OTP, Verification Code, Credit Card, or Security Answers.
@@ -111,33 +108,79 @@ app.post("/chat", async (req, res) => {
             content: message
         });
 
-        const response = await client.responses.create({
+        // Set headers for Server-Sent Events (SSE)
+        res.setHeader("Content-Type", "text/event-stream");
+        res.setHeader("Cache-Control", "no-cache");
+        res.setHeader("Connection", "keep-alive");
+        res.flushHeaders();
+
+        const stream = await client.responses.create({
             model: "gpt-5",
-            input: input
+            input: input,
+            stream: true
         });
 
-        const text = response.output_text.trim();
-        let responseJson;
+        let streamBuffer = "";
+        let isButtonsStarted = false;
+        let buttonsContent = "";
 
-        try {
-            let cleanText = text;
-            if (cleanText.startsWith("```")) {
-                cleanText = cleanText.replace(/^```json\s*/i, "").replace(/```$/, "").trim();
+        for await (const event of stream) {
+            if (event.type === 'response.output_text.delta' && event.delta) {
+                const delta = event.delta;
+                
+                for (let i = 0; i < delta.length; i++) {
+                    const char = delta[i];
+                    
+                    if (!isButtonsStarted) {
+                        streamBuffer += char;
+                        
+                        // Check if we are starting the buttons section
+                        if (streamBuffer.includes("[[BUTTONS:")) {
+                            isButtonsStarted = true;
+                            const textPart = streamBuffer.substring(0, streamBuffer.indexOf("[[BUTTONS:"));
+                            if (textPart) {
+                                res.write(`data: ${JSON.stringify({ text: textPart })}\n\n`);
+                            }
+                            streamBuffer = "";
+                        } else {
+                            // To prevent streaming incomplete tag triggers (like "[", "[["),
+                            // we hold back the last few characters if they look like the start of a tag
+                            const safeLength = streamBuffer.length - 10;
+                            if (safeLength > 0) {
+                                const chunkToSend = streamBuffer.substring(0, safeLength);
+                                res.write(`data: ${JSON.stringify({ text: chunkToSend })}\n\n`);
+                                streamBuffer = streamBuffer.substring(safeLength);
+                            }
+                        }
+                    } else {
+                        buttonsContent += char;
+                    }
+                }
             }
-            responseJson = JSON.parse(cleanText);
-        } catch (err) {
-            console.error("JSON parse error:", err, "Original text:", text);
-            responseJson = {
-                reply: text,
-                buttons: []
-            };
         }
 
-        res.json(responseJson);
+        // Flush remaining text
+        if (!isButtonsStarted && streamBuffer) {
+            res.write(`data: ${JSON.stringify({ text: streamBuffer })}\n\n`);
+        }
+
+        // Flush buttons if generated
+        if (isButtonsStarted && buttonsContent) {
+            let cleanButtons = buttonsContent.trim();
+            if (cleanButtons.endsWith("]]")) {
+                cleanButtons = cleanButtons.substring(0, cleanButtons.length - 2);
+            }
+            const buttons = cleanButtons.split("|").map(b => b.trim()).filter(Boolean);
+            res.write(`data: ${JSON.stringify({ buttons })}\n\n`);
+        }
+
+        res.write("data: [DONE]\n\n");
+        res.end();
 
     } catch (err) {
         console.error(err);
-        res.status(500).json({ error: "Something went wrong." });
+        res.write(`data: ${JSON.stringify({ error: "Something went wrong." })}\n\n`);
+        res.end();
     }
 });
 

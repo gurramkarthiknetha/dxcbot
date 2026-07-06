@@ -47,14 +47,12 @@ function App() {
       timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
     };
 
-    // Keep track of the updated messages array to include in history (excluding the bot loading slot)
     const updatedMessages = [...messages, userMsg];
     setMessages(updatedMessages);
     setInput('');
     setIsLoading(true);
 
     try {
-      // Map history to the format expected by backend (sender, text)
       const history = messages.map(msg => ({
         sender: msg.sender,
         text: msg.text
@@ -65,9 +63,9 @@ function App() {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ 
+        body: JSON.stringify({
           message: textToSend,
-          history: history 
+          history: history
         }),
       });
 
@@ -75,17 +73,98 @@ function App() {
         throw new Error('Could not connect to the assistant backend.');
       }
 
-      const data = await res.json();
-      
-      const botMsg: Message = {
-        id: Math.random().toString(36).substr(2, 9),
-        sender: 'bot',
-        text: data.reply || "I couldn't find that information in the LBL documentation. Please contact the LBL Service Center for further assistance.",
-        timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
-        buttons: data.buttons || [],
-      };
+      const reader = res.body?.getReader();
+      const decoder = new TextDecoder("utf-8");
+      if (!reader) throw new Error("No reader found on response body");
 
-      setMessages((prev) => [...prev, botMsg]);
+      let botMessageId: string | null = null;
+      let botText = "";
+      let botButtons: string[] = [];
+      let isFinished = false;
+      let buffer = "";
+
+      while (!isFinished) {
+        const { value, done } = await reader.read();
+        if (done) {
+          isFinished = true;
+          break;
+        }
+
+        buffer += decoder.decode(value, { stream: true });
+        const lines = buffer.split("\n");
+        buffer = lines.pop() || "";
+
+        for (const line of lines) {
+          const cleanLine = line.trim();
+          if (!cleanLine) continue;
+
+          if (cleanLine.startsWith("data: ")) {
+            const dataStr = cleanLine.substring(6);
+            if (dataStr === "[DONE]") {
+              isFinished = true;
+              break;
+            }
+
+            try {
+              const data = JSON.parse(dataStr);
+              if (data.text) {
+                botText += data.text;
+                
+                if (!botMessageId) {
+                  // Only create the bot message once the first token of the streamed response is available
+                  botMessageId = Math.random().toString(36).substr(2, 9);
+                  const newBotMsg: Message = {
+                    id: botMessageId,
+                    sender: 'bot',
+                    text: botText,
+                    timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
+                    buttons: []
+                  };
+                  setMessages((prev) => [...prev, newBotMsg]);
+                  setIsLoading(false);
+                } else {
+                  // Update text in real time
+                  const currentId = botMessageId;
+                  setMessages((prev) =>
+                    prev.map((msg) =>
+                      msg.id === currentId ? { ...msg, text: botText } : msg
+                    )
+                  );
+                }
+              }
+              if (data.buttons) {
+                botButtons = data.buttons;
+                
+                if (!botMessageId) {
+                  botMessageId = Math.random().toString(36).substr(2, 9);
+                  const newBotMsg: Message = {
+                    id: botMessageId,
+                    sender: 'bot',
+                    text: '',
+                    timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
+                    buttons: botButtons
+                  };
+                  setMessages((prev) => [...prev, newBotMsg]);
+                  setIsLoading(false);
+                } else {
+                  const currentId = botMessageId;
+                  setMessages((prev) =>
+                    prev.map((msg) =>
+                      msg.id === currentId ? { ...msg, buttons: botButtons } : msg
+                    )
+                  );
+                }
+              }
+              if (data.error) {
+                throw new Error(data.error);
+              }
+            } catch (err) {
+              console.error("Stream parse error:", err);
+            }
+          }
+        }
+      }
+
     } catch (error) {
       console.error(error);
       const errorMsg: Message = {
@@ -111,10 +190,7 @@ function App() {
   };
 
   const handleButtonClick = (buttonText: string, messageId: string) => {
-    // Send message simulating user click
     handleSendMessage(buttonText);
-    
-    // Clear/hide buttons from that message bubble so user cannot re-click them in history
     setMessages((prev) =>
       prev.map((msg) => (msg.id === messageId ? { ...msg, buttons: [] } : msg))
     );
@@ -216,40 +292,40 @@ function App() {
 
         <div className="quick-actions-section">
           <span className="section-title">Common Topics</span>
-          <button 
-            type="button" 
+          <button
+            type="button"
             id="qa-register"
             className="quick-action-btn"
             onClick={() => handleQuickAction("How do I register?")}
           >
             How do I register?
           </button>
-          <button 
-            type="button" 
+          <button
+            type="button"
             id="qa-password"
             className="quick-action-btn"
             onClick={() => handleQuickAction("What are the password requirements?")}
           >
             Password Requirements
           </button>
-          <button 
-            type="button" 
+          <button
+            type="button"
             id="qa-mfa"
             className="quick-action-btn"
             onClick={() => handleQuickAction("Why am I not receiving my verification code?")}
           >
             Verification Code Issues
           </button>
-          <button 
-            type="button" 
+          <button
+            type="button"
             id="qa-timeout"
             className="quick-action-btn"
             onClick={() => handleQuickAction("What is the user session timeout?")}
           >
             Session Timeout
           </button>
-          <button 
-            type="button" 
+          <button
+            type="button"
             id="qa-outage"
             className="quick-action-btn"
             onClick={() => handleQuickAction("How do I report a system outage?")}
@@ -270,11 +346,10 @@ function App() {
         <header className="chat-header">
           <div className="chat-status">
             <div className="mobile-brand-icon">L</div>
-            <span className="status-dot"></span>
-            <span className="status-text">LBL Support Agent Online</span>
+            <span className="status-text">LBL Support Agent </span>
           </div>
 
-          <button 
+          <button
             type="button"
             className="theme-toggle-btn"
             id="theme-toggler"
@@ -302,23 +377,23 @@ function App() {
               <p>
                 I am your documentation-based AI assistant. To help me guide you to the right documentation, please select your role below:
               </p>
-              
+
               <div className="welcome-suggestions" style={{ gridTemplateColumns: 'repeat(3, 1fr)' }}>
-                <div 
+                <div
                   className="suggestion-card"
                   onClick={() => handleQuickAction("Agent")}
                 >
                   <h5>Agent / Producer</h5>
                   <p>Access the Agent Portal and client books.</p>
                 </div>
-                <div 
+                <div
                   className="suggestion-card"
                   onClick={() => handleQuickAction("Owner")}
                 >
                   <h5>Policy Owner</h5>
                   <p>Access Owner Portal and link policies.</p>
                 </div>
-                <div 
+                <div
                   className="suggestion-card"
                   onClick={() => handleQuickAction("Home Office")}
                 >
@@ -330,11 +405,11 @@ function App() {
           ) : (
             messages.map((msg) => (
               <div key={msg.id} className={`message-wrapper ${msg.sender}`}>
-                <div 
+                <div
                   className="message-bubble"
                   dangerouslySetInnerHTML={{ __html: parseMessageText(msg.text) }}
                 />
-                
+
                 {/* Render Selection Option Buttons under bot response bubbles */}
                 {msg.sender === 'bot' && msg.buttons && msg.buttons.length > 0 && (
                   <div className="message-action-buttons">
@@ -386,9 +461,9 @@ function App() {
               disabled={isLoading}
               autoComplete="off"
             />
-            <button 
-              type="submit" 
-              className="send-btn" 
+            <button
+              type="submit"
+              className="send-btn"
               id="send-message-btn"
               disabled={!input.trim() || isLoading}
               aria-label="Send message"
