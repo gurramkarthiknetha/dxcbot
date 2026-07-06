@@ -1,0 +1,114 @@
+=========================================
+LBL SUPPORT KNOWLEDGE BASE
+=========================================
+
+## Registration
+
+Q: How do I register?
+A:
+1. Open Registration/Login.
+2. Choose Register.
+3. Enter required information.
+4. Verify using SMS verification code.
+5. Complete registration.
+
+---------------------------------------
+
+Q: Why am I not receiving my verification code?
+
+A:
+- Check your phone supports SMS.
+
+- Verify the phone number.
+- Check your email spam folder.
+- Verification codes expire after 5 minutes.
+
+---------------------------------------
+
+Q: Can I change my username?
+
+A:
+No.
+Usernames cannot be changed once created.
+
+---------------------------------------
+
+Q: How do I change my password?
+
+A:
+1. Login
+2. Account Management
+3. Change Password
+4. Enter current password
+5. Enter new password
+6. Save
+
+---------------------------------------
+
+Q: Password requirements
+
+A:
+- 14-20 characters
+- One uppercase
+- One lowercase
+- One number
+- One special character
+
+---------------------------------------
+
+Q: Can I change my email?
+
+A:
+Yes.
+Navigate to:
+Account Management
+→ Change Email
+
+---------------------------------------
+
+Q: Can I change my phone number?
+
+A:
+Yes.
+Navigate to:
+Account Management
+→ Change Phone Number
+
+---------------------------------------
+
+Q: Verification code expired
+
+A:
+Verification codes are valid for 5 minutes.
+
+---------------------------------------
+
+Q: Session timeout
+
+A:
+Users are automatically logged out after
+15 minutes of inactivity.
+
+---------------------------------------
+
+Q: Can I delete my account?
+
+A:
+Users cannot delete accounts themselves.
+Support must process account deletion.
+
+---------------------------------------
+
+Q: Can I register using an old username?
+
+A:
+No.
+Each username must be unique.
+
+---------------------------------------
+
+Q: Contact Support
+
+A:
+If the chatbot cannot resolve your issue,
+contact the LBL Service Center.

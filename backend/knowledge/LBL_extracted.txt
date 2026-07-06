@@ -1,0 +1,570 @@
+--- PAGE 1 ---
+
+Frequently Asked Questions (FAQ) for Support  
+Frequently Asked Questions (FAQ) --LBL Portals  
+This page provides answers to common questions, organized by category for easy navigation, related to the Lincoln Benefit Life (LBL) (formerly known as Resolution Life (RSL)) web sites for Policy Owners and Agents.  
+Image source can be found on the BPO wiki https://bpowiki.bps-cloud.us/index.php/Frequently_Asked_Questions_(FAQ)_for_Support.  
+  
+Contents  
+Frequently Asked Questions (FAQ) --LBL Portals  
+Getting Started  
+User Set up / Registration  
+Home Office User Exclusive Content (How to assist Agent and Policy Owner End Users)  
+Transitioning from the previous LBL site  
+Assisting Agents  
+Assisting Policy Owners  
+For H9 Permission Users who can launch Eclipse Illustrations  
+General User info for the Application  
+Verification Code Related issues  
+How do users change their personal information?  
+Troubleshooting  
+What do I do if I need Support?  
+Miscellaneous Info  
+Known Production Issues Being worked  
+System Release Notes  
+  
+Getting Started  
+  
+User Set up / Registration  
+Q: What is the difference between Login and Registration?  
+A: An Agent or Policy Owner must Register to create an account on the site. This requires them to input information to identify the agent ID or policy number they will have authority to view.  
+An Agent or Policy Owner only needs to register once (unless they have not completed their registration). Once they have entered their user information and confirmed their phone number by successfully entering the Verification Code at Registration, they are considered as having completed their
+
+--- PAGE 2 ---
+
+registration and would use the credentials they created at Registration to Login.
+
+For Home Office accounts, who are not accessing only specific Agent or Policy data, but are authorized to see all Agents and Policies in the Client's block of business, users do not Register. Their accounts are administratively established. Home Office users will always ONLY Login - never Register.
+
+Note: There are a few LBL employees as well who are set up as Home Office users. Like DXC Home Office users, these accounts are administratively created and will never use the Registration function, only Login.
+
+Refer to Q: How do I request an account, as a DXC Employee? for information on how to request an account for a DXC Employee.
+
+Q: What is an account?
+
+A: An account is the unique user information which is created for a person who accesses the web site(s). It is always a person who is creating an account either representing themself as an individual or on behalf of an entity they represent, e.g., an Agency for the Agent site or a Trust or Business for a Policy Owner.
+
+DXC Employees do not register - their accounts are administratively set up.
+
+Accounts are composed of first name, last name, username, email, password, and phone number (must be capable of receiving text messages). A Policy Owner account is associated with one or more policies. An Agent account is associated with one or more Agent IDs.
+
+Q: How do I request an account, as a DXC Employee?
+
+A: DXC Call Center, Policy Holder Services, Agency Services and IT Support team members may be granted Home Office user access to both sites. For those who previously had access to the site, your managers were asked to rectify your access. Users who were confirmed as needing access have been set up on the new site. If you believe you should be granted access, your manager must submit the access request for you into LifeBPO Service Now (https://lifepolhedpesk.service-now.com/) using LAN Production access request form (make sure to use the April 2026 version of the form or later, else the request will be rejected) and completing the info per the User Guide tab on the User Info and Portal tabs. 
+
+Note: LBL also has a small group of employees who are set up as Home Office users as well. Their requests will come into the team providing Managed Services Support to Agent and Owner Portals directly.
+
+Q: How does a Policy OWNER create an account (register)?
+
+A: Policy Owners must create their own account via the Registration process.
+
+Steps for registration are as follows:
+
+1. From the initial "landing" page, users will select Registration / Login for Policy Owners.
+2. To create their account, users must click the Register Account button which will guide them through the dialog to create an account.
+
+1. The first two pieces of information that the Policy Owner must provide are the policy number and the last four digits of the policy owner's SSN/TIN. The policy must be found in the uniA system (which retrieves its data from CyberLife feeds as part of every cycle run) and the SSN/TIN of the policy owner uniA must match the last four digits entered by the user. The user does need to enter the last four digits of the SSN/TIN twice to confirm their entry. User must take care to enter the policy number exactly as it is found on their Insurance Contract. Common issues seen which cause problems can be when a user enters a zero instead of the letter "O" or vice versa. Similar issues can occur with number one and letter "l." Only ONE user may be registered as the policy owner, even for joint owned policy. If the policy has already been registered by one co-owner, the additional co-owner would not be able to proceed from verification of the policy number and SSN. If the policy number has already been registered by another user, they will receive this error message: Our records indicate you already have an existing account.
+
+--- PAGE 3 ---
+
+Please contact our Service Center at 1-844-768-6777, Monday-Friday 8:00 AM - 5:00 PM CT, for assistance.  
+2. If the user is able to progress to step 2, they will need to provide the remaining personal information to set up their account.  
+1. User's first name and last name should be provided since someone accessing the site will always be a person, even if that person is representing an entity owner (e.g., a trust or a business).  
+2. Username must be selected by the user. The Username must be between six and forty characters in length, with at least one letter and one number, using only lowercase letters and numbers. No special characters are allowed. The username selected by the user must be unique (it cannot already be in use by another site user).  
+1. If the username does not match the criteria, they will receive this error message: The Username must contain at least one (1) alphabet and one (1) numeric character  
+2. If the username is already selected by another user they will receive this error message: User details already Registered. Please select different user details Please contact our Service Center at 1-844-768-6777, Monday-Friday 8:00 AM - 5:00 PM CT, for assistance.  
+3. User must provide their email address. This email is used for certain transactional Verification Code communication.  
+4. User must determine their password to use for the site. The password must be between 14 and 20 characters in length, include at least one (1) lowercase letter, one (1) uppercase letter, one (1) numeric digit, and must contain a special character.  
+5. User must provide their country code and phone number information, providing a phone number capable of receiving SMS text message. The phone number is used for certain transactional Verification Code communication. It will never be used for marketing campaign or promotional purposes. Specifying a land line will result in the user's phone number never receiving the verification code so they will not be able to log in.  
+6. User must click the checkbox affirming they consent to receive text messages containing the Verification Code for the site.  
+Q: How does an AGENT create an account (register)?  
+A: Agents must create their own account via the Registration process.  
+Steps for registration are as follows:  
+1. From the initial "landing "page, users will select Registration / Login for Agents.  
+2. To create their account, users must click the Register Account button which will guide them through the dialog to create an account.  
+1. The first two pieces of information that the Agent must provide are their agent number and the last four digits of their agent SSN/TIN. The agent must be found in the uniA system (which receives its data from CyberLife and PPLUS feeds as part of every cycle run) and the SSN/TIN of the Agent in uniA must match the last four digits entered by the user. The user does need to enter the last four digits of the SSN/TIN twice to confirm their entry. User must take care to enter the Agent number exactly. Common issues seen which cause problems can be when a user enters a zero instead of the letter "O" or vice versa. Similar issues can occur with number one and letter "L". Only ONE user may be registered as the Agent. If the agent number has already been registered by another user, they will receive this error message: Our records indicate you already have an existing account. Please contact our Service Center at 1-844-768-6777, Monday-Friday 8:00 AM - 5:00 PM CT, for assistance.  
+2. If the user is able to progress to step 2, they will need to provide the remaining personal information to set up their account.  
+1. User's first name and last name should be provided since someone accessing the site will always be a person, even if that person is representing an Agency.  
+2. Username must be selected by the user. The Username must be between six and forty characters in length, with at least one letter and one number, using only lowercase letters and numbers. No special characters are allowed.
+
+--- PAGE 4 ---
+
+```
+special characters are allowed. The Username selected by the user must be unique (it cannot already be in use by another site user).
+
+1. If the username does not match the criteria, they will receive this error message: The Username must contain at least one (1) alphabet and one (1) numeric character
+2. If the username is already selected by another user they will receive this error message: User details already Registered. Please select different user details Please contact our Service Center at 1-844-768-6777, Monday-Friday 8:00 AM - 5:00 PM CT, for assistance.
+
+3. User must provide their email address. This email is used for certain transactional Verification Code communication.
+4. User must determine their password to use for the site, and they will be prompted to enter this twice to confirm entry. The password must be between 14 and 20 characters in length, include at least one (1) lowercase letter, one (1) uppercase letter, one (1) numeric digit, and must contain a special character.
+5. User must provide their country code and phone number information, providing a phone number capable of receiving SMS text message. The phone number is used for certain transactional Verification Code communication. It will never be used for marketing campaign or promotional purposes. Specifying a land line will result in the users' phone number never receiving the Verification Code so they will not be able to log in.
+6. User must click the checkbox affirming their consent to receive text messages containing the Verification Code for the site.
+
+Q: Caller did not receive their Verification Code for registration. What do we check?
+
+A: See Verification Code Related Issues (https://bpowik.bps-cloud.us/index.php/Frequently_Asked_Question s_(FAQ)_for_Support#Verification_Code_Affected_issues) section.
+
+Home Office User Exclusive Content (How to assist Agent and Policy Owner End Users)
+
+Transitioning from the previous LBL site
+Q: What's changed?
+
+A: The new site ...
+
+1. is AWS hosted, aka "on the cloud",
+2. uses modern frameworks,
+3. is responsive (meaning the UI will resize depending on the form factor of the device running the browser),
+4. is built upon the DXC Assure Platform, and
+5. implements multifactor authentication (MFA) for user access (e.g., Verification Code must be input as well as user credentials (username and password)). MFA requires us to capture a phone number for each user. This is a change from the prior site. This is required to be able to send a text over SMS with their Verification Code for certain transactions. Specifically, registration, change Password and Change Email require the user to receive the Verification Code via text.
+
+The previous site hosted on the Norwich data center servers was used as the foundation for functionality. Other than the addition of MFA and WEBREG creation and removal of Impersonation and Agent Staff account creation, business functionality is the same as the previous site. The technologies used to implement the site, however, are totally different so it was a complete rewrite.
+```
+
+--- PAGE 5 ---
+
+```
+Q: Can I use my credentials (e.g., username and password) from the old site on the new site to login? 
+
+A: No. Agent and Policy Owner users from the "old" site need to re-register on the new site. The new site provides greater security by requiring multi-factor authentication (MFA). In order to supply the Verification Code to users, we must ensure we have a current phone number for the user which is capable of receiving SMS (text) messages to provide the Verification Code via text (the previous site did not collect user's phone numbers), and we must ensure we have the most current email address for the user.
+
+Q: Why are Agent and Owners users required to register on the new site? 
+
+A: Agent and Policy Owner users need to re-register on the new site as the new site provides greater security. In order to supply the Verification Code to users, we must ensure we have a current phone number for the user which is capable of receiving SMS (text) messages to provide the Verification Code via text (the previous site did not collect user's phone numbers), and we must ensure we have the most current email address for the user.
+
+Q: How do I access the Admin Tool?
+
+A: The new portals do NOT have Admin Tool sites.
+
+Q: How do I impersonate a user?
+
+A: The AWS hosted site does NOT have the capability for a Home Office user to Impersonate an Agent or Policy Owner. 
+
+The new site does, however, offer the ability to search and look at policy or agent information in the same form as it is presented to the policy owner or agent, regardless of whether that policy or agent has registered for the site or not. The difference is that as a home office user, you must have the information to pull up the policy or agent details. For policies, you must know the last 4 digits of the policy owners SSN/TIN. For agents, you must similarly know the last 4 digits of their agent ID's SSN/TIN. This can be obtained from uniA (csA/cmA).
+
+Assisting Agents 
+Q: What can we do if the Agent user typo'd their phone number or email when they registered?
+
+A: If the user has a typo in their phone number or used a phone not capable of receiving an SMS text, and does not receive their initial Verification Code for registration, the system will automatically purge the account (considered an UNCONFIRMED user in technical terms), at 2 AM ET the next day. Once the account has been purged, the user will be allowed to reregister. They can use the same credentials, except of course they will need to provide the correctly entered and SMS capable phone number to complete their registration. 
+
+Once the user has successfully registered, then the email address is used. If the user has registered successfully, but does not receive the Verification Code for login, get verification as to what email address they have (and what they believe they registered with). This usually will require an IT ticket be submitted. BPS IT Support can submit a request to the Infrastructure team for administratively correcting errors in a user's email (username cannot be modified). Contact your Team lead to create a ticket in the Jira project for LBL Production (https://ji ra.dxc.com/browse/LBLP), if you do not have Jira access.
+
+You must include the following in your request:
+1. one of the following identifying pieces of data the user entered at their registration: Username, phone number or email,
+2. the data correction required: what is the data they entered at registration and what is the change we need to make,
+```
+
+--- PAGE 6 ---
+
+3. a statement that this is for an Agent's portal account.  
+Q: How can I tell, as a Home Office User, if an Agent has already registered to access the site?  
+A: There are two ways to tell if an agent has already registered.  
+
+1. When a user registered to the site as an Agent, a WEBREG work type gets created. OPS Team members with AWD access can look up the WEBREG in AWD. All AWD users have the option to use Quick Lookup from the AWD menu. Within Quick Lookup, use the Agent Number field to retrieve the required results. The work type is indexed with the Agent ID. The Username on the WEBREG CSD shows you the username selected by the Agent at registration and the View Data can show the details including Registration date  
+
+(RGDT LOB).  
+
+2. Established Home Office users may use SEARCH to view the policies for an agent. To do so, the agent/producer ID and the last 4 digits of the agent's SSN/TIN must be known. When you enter this information, the system will attempt to look up the Agent in uniA and present the agent's book of business. The results will also show the user whether the Agent has already registered for the web site.  
+You will see a message indicating one of the following scenarios:  
+
+a) Agent is registered followed by the username they set up at registration.  
+*LINCOLN*  
+Agent is registered. Username: testagent1.  
+
+--- PAGE 7 ---
+
+```
+b) Agent is not registered
+
+Agent Search
+
+My Business
+Policy Number 
+Last 4 digits of SSN *
+
+When the Agent ID/SSN combination is valid (found in red) but the agent cannot register, you will see the message as shown below: 
+
+Error indicating that you did not supply information for a valid agent. 
+
+Q: Caller is indicating they are getting an error registering with their Agent ID. Why might this occur?
+
+A: An Agent may not register if they are blocked, have already registered under any other profile which the same SSN/TIN, or have a status which is not allowed to register. 
+Refer to Q: Can an Agent Register if they have a status indicating Terminated, Terminated with Vesting, or Terminated without Vesting?
+
+Q: Can an agent designate Staff users who can access their business?
+
+A: No. The new site does not offer this ability. Due to the low usage of this feature, along with security risk it carries, the "add staff" feature was not carried over. LBL was advised of this decision.
+
+Q: Can I submit transactions on behalf of the Agent?
+
+A: No. Home Office users are not authorized to submit Illustration requests as an Agent. Home Office users who need to run Illustrations in the Eclipse Illustration system must be granted an H9 role to enable that option.
+
+Q: Can an Agent Register if they have a status indicating Terminated, Terminated with Vesting, or Terminated without Vesting?
+
+A: The only terminated status which allows the Agent to register is Terminated with Vesting. If the Agent has a status of Terminated or Terminated Without Vesting' in uniA, they will receive the following error: Registration is unavailable for this agent. Please contact our Service Center at 1-844-768-6777, Monday-Friday 8:00 AM - 5:00 PM CT, for assistance.
+
+Q: Can an Agent change their username?
+
+A: No. The username cannot be changed once the account is created.
+
+Q: Can an Agent delete their account?
+```
+
+--- PAGE 8 ---
+
+A: No. Neither the Agent (user) nor the Customer Service Representative (CSR) nor LifeBPS IT have the ability to delete the user's account once the account has been confirmed (completed registration). However, the ISB Hosting Team can address user deletion when required.  
+
+Contact your Team lead to create a ticket in the Jira project for LBL Production (https://jira.dxc.com/browse/LBLP), if you do not have Jira access.  
+
+You must include the following in your request:  
+
+1. one of the following identifying pieces of data for the user's account: Username, phone number or email,  
+2. a statement that this is for an Agent's portal account, and  
+3. the reason why the user is asking for their account to be deleted.  
+
+Assisting Policy Owners  
+Q: What to do if the Policy Owner user typo'd their email or phone number when they registered?  
+
+A: If the user has a typo in their phone number or used a phone not capable of receiving an SMS text, and does not receive their initial Verification Code for registration, the system will automatically purge the account (considered an UNCONFIRMED user in technical terms), at 2 AM ET the next day. Once the account has been purged, the user will be allowed to reregister. They can use the same credentials, except of course they will need to provide the correctly entered and SMS capable phone number to complete their registration.  
+
+BPS IT Support can submit a request to the Infrastructure team for administratively correcting errors in a user's phone number or email (username cannot be modified). Contact your Team lead to create a ticket in the Jira project for LBL Production (https://jira.dxc.com/browse/LBLP), if you do not have Jira access.  
+
+You must include the following in your request:  
+
+1. one of the following identifying pieces of data the user entered at their registration: Username, phone number or email,  
+2. the data correction required: what is the data they entered at registration and what is the change we need to make,  
+3. a statement that this is for a Policy Owner's account.  
+Q: How can I tell if a Policy has already been registered?  
+
+A: There are two ways to tell if a policy has been registered.  
+
+1. When a user registers to the site as a Policy Owner, a WEBREG work type gets created. OPS Team members with AWD access can look up the WEBREG in AWD. The work type is indexed with the Policy Number. The Username on the WEBREG CSD shows you the username selected by the owner at registration and the View Data can show the details including Registration date (RGDT LOB).  
+2. Established Home Office users may use SEARCH to view the specific policies. To do so, the Policy number and the last 4 digits of the policy owner's SSN/TIN must be known. When you enter this information, the system will attempt to look up the Policy in uniA and present the policy information. The results will also show the user whether the Policy has already been registered by a user on the web site. Note: This lookup is only for a single policy, but a Policy Owner may have multiple policies linked to their account. If any ONE of their policies is used to register the policy owner may not re-register with a different policy. Instead they must link the additional policy to their EXISTING account. You will see a message indicating one of the following scenarios:
+
+--- PAGE 9 ---
+
+a) Policy number is registered followed by the username they set up at registration.  
+*LINCOLN*  
+Policy Summary  
+Policy Search  
+Policy Number:  
+SSN*:  
+Policy Summary  
+Click on the policy row to navigate to policy details.  
+Policy Owner is registered. Username: testowner1.  
+
+b) Policy number is not registered  
+*LINCOLN*  
+Policy Summary  
+Policy Search  
+Policy Number:  
+SSN*:  
+Policy Summary  
+Click on the policy row to navigate to policy details.  
+Policy Owner is not registered.  
+
+c) Error indicating that you did not supply information for a valid policy.  
+*LINCOLN*  
+Policy Summary  
+Policy Search  
+Policy Number*:  
+pol213  
+0887  
+Policy Summary  
+Click on the policy row to navigate to policy details.  
+Error  
+Invalid Contact: Please contact our Service Center at 1-866-746-7897, Monday-Friday 8:00 AM - 10:00 PM ET for assistance.  
+Time error: The format for the SSN/TIN combination is invalid (found to be) but the agent has not registered, you will see the message as shown here.  
+
+Q: Caller is indicating they are getting an error registering with their policy. Why might this occur?  
+A: If caller is indicating they are getting an error registering with their policy,  
+
+--- PAGE 10 ---
+
+1. The easiest thing you can check is whether the policy is in Cyberlife or uniA and if found, check the status of the policy in Cyberlife or uniA. Policies not found in uniA cannot be registered.
+2. The second thing to check is that the last 4 they are providing to validate the policy belongs to the OWNER role and shows up the same for the OWNER when viewed in uniA. If the policy is in uniA and the SSN / TIN is that of the owner role, proceed to the next checks.
+3. A policy cannot be registered with a user if the policy is not-active, is blocked, or if the policy owner is already registered under a different username than they are trying to register.
+4. The following status codes in Cyberlife are considered active:
+
+   Cyberlife Policy Status Code | Cyberlife Policy Status Description
+   --------------------------------|----------------------------------------------------
+   21                             | A fixed premium policy
+   22                             | A normal premium paying policy record.
+   41                             | Paid-up normal
+   42                             | Single premium (fixed premium only)
+   43                             | Single premium in lieu of matured endowment (net basis)
+   44                             | ETI- Extended Term Insurance
+   45                             | RPU-Reduced Paid up
+   46                             | Fully paid-up
+   47                             | Multiple coverages that are all paid-up with different paid-up forms
+   36                             | Annuitization
+
+See also "Which policy status codes are considered as not-active?".
+
+1. Error messages that can be presented:
+   1. When the policy owner tries to register a policy that is not-active or if the information provided does not match what we have in uniA system (which receives its data from CyberLife feeds as part of every cycle run), they will receive this error:
+      1. Invalid Credentials. Please contact our Service Center at 1-844-768-6777, Monday-Friday 8:00 AM - 5:00 PM CT, for assistance.
+   2. When the policy owner tries to register a policy that is on the block list they will receive this error:
+      1. We are unable to complete your registration. If you need help, Please contact our Service Center at 1-844-768-6777, Monday-Friday 8:00 AM - 5:00 PM CT, for assistance.
+   3. When the policy owner tries to register a policy that has already been registered, they will receive this error:
+      1. Invalid Credentials. Please contact our Service Center at 1-844-768-6777, Monday-Friday 8:00 AM - 5:00 PM CT, for assistance.
+
+Q: Which policy status codes are considered as not-active?
+
+A: A policy cannot be registered with a user or linked to a user if the policy is not-active. Note that Cyberlife typically archives policies off of their system if the policy has not been active for 13 months.
+
+The following status codes in Cyberlife are considered not-active:
+
+   Cyberlife Policy Status Code | Cyberlife Policy Status Description
+   --------------------------------|----------------------------------------------------
+   97                             | Reinstatement pending
+   99                             | Terminated or Expired policy record
+
+--- PAGE 11 ---
+
+```
+See also "Caller is indicating they are getting an error registering with their policy. Why might this occur?"
+
+Q: How does a user link additional Policies to their user account?
+
+A: Some registered users may be an Owner on multiple policies. They should not try to create a separate account for each policy. Instead, a registered policy owner user can link additional policies to their existing user account by navigating to Account Management and selecting Linking Policy. The policy number must be known and the owner SSN/TIN must match that of the originally registered policy for the user. After entering the required information, the user must Submit the request. The system will attempt to locate the policy in uniA and display the policy details. If the policy number entered is found and confirmed as owned by the user, the policy will be linked and displayed under Policies Linked To Your Account. If the user specifies a policy number that is not found or does NOT match the SSN/TIN of their original registration, they will see the error "Invalid Credentials. Please contact our Service Center at 1-844-768-6777, Monday-Friday 8:00 AM - 5:00 PM CT, for assistance."
+
+Q: Can a Policy Owner register or link a policy that is suspended or restricted?
+
+A: Yes. Registration and linking of a policy are allowed when the policy is suspended or restricted, however, the Policyowner will only see a subset of their policy data on the screen.
+
+Q: Can I submit transactions on behalf of the policy owner?
+
+A: No. As a Home Office User, you will be able to see the screens the Policy Owner sees for submitting address changes or billing updates, but you will not have the Submit option enabled. Only the registered user as Policy Owner can proceed with the Submit step.
+
+Q: Is data retrieved from Cyberlife realtime?
+
+A: No. The policy data comes from uniA. Each run of Cyberlife cycles will send a feed to uniA if there were policy updates for that day. uniA will load the feed to update the uniA databases. The data is read realtime from uniA databases.
+
+Q: Are update transactions processed into Cyberlife realtime?
+
+A: No. The user registered as the Policy Owner may submit a request for an address change and/or a billing change, but these only create ADDCHG and BILCHG work items in AWD which are then addressed by PHS. The request has to be deemed as IN GOOD ORDER (IGO) by PHS and then the respective update applied in Cyberlife.
+
+Q: Can a Policy Owner change their username?
+
+A: No. The username cannot be changed once the account is created.
+
+Q: Can a husband and wife, each with their own separate policy, register using the same phone number?
+
+A: No. Different site users cannot be registered using the same SMS-enabled phone number. The phone number is treated as part of the user's unique identifying information and therefore cannot be shared between multiple user accounts.
+
+Q: Can a Policy Owner delete their account?
+```
+
+--- PAGE 12 ---
+
+A: No. Neither the User (Policy Owner) nor the Customer Service Representative (CSR) nor the LifeBPS IT team have the ability to delete a user account after the account has been confirmed (completed registration). However, the ISB Hosting Team can process a request for account deletion.  
+If a user requests to have their account DELETED, contact your Team lead to create a ticket in the Jira project for LBL Production (https://jira.dxc.com/browse/LBLP), if you do not have Jira access.  
+
+You must include the following in your request, along with the explicit request to delete the user account:  
+1. one of the following identifying pieces of data for the user's account: Username, phone number or email,  
+2. a statement that this is for a Policy Owner's account, and  
+3. the reason why the User is requesting their account be deleted.  
+
+For H9 Permission Users who can launch Eclipse Illustrations  
+Q: I am receiving an error 'Could NOT Load the reprojection data into the parser’, what do I do?  
+A: This may occur if there is an issue with the import of the reprojection (.rpj) file into Eclipse. Please retry the import into the Eclipse Illustration system. If you continue to have an issue, please raise a Jira ticket, https://jira.dxc.com/, within the LBL Production project and include the .rpf file you are importing as an attachment.  
+
+General User info for the Application  
+
+Verification Code Related issues  
+Q: User indicates they are not receiving their Verification Code to their phone. What do we check?  
+A: Here's some things to check: Make sure the user's phone is turned on (added because, yes, this has happened).  
+
+Make sure the phone the user registered with a phone capable of receiving text messages over SMS.  
+It is important to note what action the user is performing to make sure they understand WHERE to look for their Verification Code. Some actions will send a code to their phone and others to their email.  
+See also: "Q: When does the Verification Code get sent to user's email vs to user's phone?"  
+
+Q: User indicates they are not receiving their Verification Code to their email. What do we check?  
+A: Here's some things to check: Make sure the user does not have the email in their JUNK or SPAM or similar folder. Users can search their mailbox for emails from no-reply@life.lbl.com email address.  
+
+It is important to note what action the user is performing to make sure they understand WHERE to look for their Verification Code. Some actions will send a code to their phone and others to their email.  
+See also: "Q: When does the Verification Code get sent to user's email vs to user's phone?"  
+
+Q: How long does a user have to provide the Verification Code before it expires?  
+A: The Verification Code provided is valid for 5 minutes. After that time, the user will need to request a new Verification Code be sent.
+
+--- PAGE 13 ---
+
+Q: When does the Verification Code get sent to user's email vs to user's phone?  
+A: The Verification Code for a regular login will be sent to the user's email address. The Verification Code will be sent via SMS text for registrations, as well as for Forgot password requests and phone number change requests.
+
+How do users change their personal information?  
+Q: How do users reset their password?  
+A: A registered policy owner can change their password by navigating to Account Management and selecting Change Password. The current password must be entered. The user then enters the new password twice to confirm it and then Save the request.  
+1. The password must be between 14 and 20 characters in length, include at least one (1) lowercase letter, one (1) uppercase letter, one (1) numeric digit, and must contain a special character.  
+2. The new password cannot match any of the user’s previous five passwords.  
+
+a) Navigate to Account Management  
+
+Policy Summary  
+Click on the policy row to navigate to policy details.  
+Policy Number  |  Policy Owner Name  |  Insured Name  |  Product  |  Policy Date  |  Modal Premium  |  Payments Per Year  |  Face Amount  |  Status  
+Coverage STB008  |  06/17/1994  |  Monthly  |  Waiver of Premium - Disability or Cost of Insurance Waiver  
+
+--- PAGE 14 ---
+
+b) Select Change Password from the Menu as shown below.
+
+Change Password Change Email Change Phone Number Linking Policy
+
+Current Password *
+
+New Password *
+
+Re-enter New Password *
+
+Cancel Save
+
+c) If the password change is successful, the user will see a confirmation message and receive a confirmation email at the email address on record.
+-LINCOLN
+
+d) Receive password change confirmation email.
+<no-reply@dev2-hub-1-lbl-dev.assure.dxc.com>
+Friday, April 24, 2026 3:36:05 PM
+
+This email confirms that you logged into our web-site, and changed your password.
+
+Please do not reply to this message. This mailbox is not monitored. If you did not make these changes, contact us at 1-844-768-6777, Monday through Friday 8:00 AM - 5:00 PM CT.
+
+Sincerely,
+Client Services
+
+Q: How do users change their email address? 
+[Collapse]
+
+--- PAGE 15 ---
+
+A: A registered policy owner can update their email address by navigating to Account Management and selecting Change Email. The current email address will be prepopulated and cannot be edited. The user must enter the new email address twice to confirm it and then Save the request.
+1. The new email address cannot be the same as the existing email address.
+2. A verification code will be sent to the new email address for the user to verify and enter on the Change Email screen.
+
+a) Navigate to Account Management
+
+b) Select Change Email from the Menu as shown below.
+
+Current Email
+cclark1@yopmail.com
+New Email *
+Re-enter New Email *
+Cancel   Save
+
+--- PAGE 16 ---
+
+c) Enter the Verification Code that you received and verify
+
+d) Once the Verification Code is validated, the email change is successful. The user will see a confirmation message and receive a confirmation email at the email address on record.
+
+e) Receive email change Confirmation email
+
+Account Update Notice - Lincoln Benefit Life  
+<no-reply@dev-2-hub-1.lbl-dev.assure.dxc.com>  
+Friday, April 22, 2026 4:10 PM CT  
+
+This email confirms that you logged into our web-site, and changed the registered email address.  
+Please do not reply to this message. This mailbox is not monitored. If you did not make these changes, contact us at 1-844-768-6777, Monday through Friday 8:00 AM - 5:00 PM CT.
+
+Q: How do users change their phone number?  
+
+A: A registered policy owner can update their phone number by navigating to Account Management and selecting Change Phone Number. The current phone number will be pre-populated and cannot be edited. The user must enter the new phone number, including the country code, twice to confirm it and then Save the request.
+
+1. The phone number provided must be capable of receiving SMS text messages. Entering a landline phone number, or other phone number which cannot receive SMS texts, after registration will prevent the user from receiving their Verification Code, which will result in the user being unable to log in.
+2. The new phone number cannot be the same as the current phone number.
+3. If the phone number has already been used, the user will receive the following error message:
+
+--- PAGE 17 ---
+
+```
+a) Navigate to Account Management
+
+b) Select Change Phone number from the Menu as shown below.
+
+Country Code
+Current Phone Number
+6513987412
+
+Country Code
+New Phone Number *
+6512853174
+
+Country Code
+Re-enter New Phone Number *
+6512853174
+
+Cancel  Save
+```
+
+--- PAGE 18 ---
+
+c) A Verification Code will be sent to the new phone number for the user to enter and verify on the Change Phone Number screen. 
+
+d) Once the Verification Code is validated, the phone number change is successful. The user will see a confirmation message and receive a confirmation email at the email address on record.
+
+Account Update Notice - Lincoln Benefit Life
+<no-reply@dev-2.hub-1.lbl-dev.assure.dxc.com>
+Friday, April 24, 2026 4:52:54 PM
+
+This email confirms that you logged into our web-site, and changed the registered mobile number. 
+
+Please do not reply to this message. This mailbox is not monitored. If you did not make these changes, contact us at 1-844-768-8777, Monday through Friday 8:00 AM - 5:00 PM CT. 
+
+Sincerely, 
+Client Services
+
+--- PAGE 19 ---
+
+Troubleshooting
+
+What do I do if I need Support?  
+Q: Who do I contact for support?
+
+A: Remember to always gather as much info as you can when reporting an issue, including screen prints if able. Remember to raise the concern with your lead to make sure a ticket is appropriate. Leads should ensure that the behavior is abnormal before raising a ticket.  
+An OUTAGE indicates the site is down or the main functions are not working overall (e.g., No users can login).
+
+Outages should be raised in BPO Service Now, https://lifebohelpldesk.service-now.com/. Select client as Resolution Life (LBL-RSL) and the appropriate impacted application, Agent Portal or Policy Owner Websites.
+
+A DEFECT indicates there is an issue for a specific user or policy or agent. Defects are typically more limited in scope than an Outage, e.g., specific policies or users are experiencing an issue.
+
+A DATA CORRECTION for certain data fields for a user account can also be submitted via Jira. Note: The only things we can correct are phone number, email, and first and last name. Username cannot be modified once the account has been created.
+
+Defects and DATA CORRECTIONS should be reported in Jira, https://jira.dxc.com/, within the LBL Production project. Call Center leads have been granted access to the Jira project and can submit tickets for their team when appropriate. As a Call Center lead, when entering a Jira ticket, the Component selected should be either Agent Portal or Owner Portal and select Issue type as Help Desk Request.
+
+Miscellaneous Info  
+Q: Can a user access either site if they registered with a landline phone?  
+A: No. As part of their registration, the user must specify a phone number which is capable of receiving SMS text messages in order to receive their Verification Code. The registration process itself does not have any way to determine whether the phone number the user provides is capable of receiving SMS texts.  
+▪ Note: If the user is unable to complete registration due to entering an incorrect phone number or a number that cannot receive SMS text messages, the user profile will be automatically deleted overnight (1:00 AM CST). If this occurs, the user will need to re-register on the next business day, and specify a phone number that supports SMS text messaging.  
+Q: What is the user session timeout?
+
+A: Users who have been inactive for 15 minutes will have their session logged out. They will need to log back in after that time to regain access the site.  
+Q: Do the terms Verification Code, MFA Code, and One-Time Passcode (OTP) all mean the same thing?  
+
+A: Yes. For the purpose of the LBL sites, the terms Verification Code, MFA Code, and One-Time Passcode (OTP) may be considered interchangeable. IT selected to use the term Verification Code as what is presented to the user on the site, in texts and emails.  
+
+Q: Give me some trivia. (ok not really a question but...)
+
+--- PAGE 20 ---
+
+1. The updated LBL sites were initiated as part of LBL's contract renewal processed in 2025. The sites are live as of May 1, 2026. A notification was posted in the Message Panel of Norwich hosted sites on March 4th to announce that new sites were coming soon.  
+2. Lincoln Benefit Life (LBL) was onboarded into the DXC Life BPS organization on September 1, 2015. Their former "Doing Business As" Name was Resolution Life (RSL). Kuvare acquired Lincoln Benefit Life Company (LBL) in December of 2019.  
+3. LBL's policies were migrated from Allstate through a lift and shift of Allstate's Cyberlife on September 1, 2015. Insurance Products for their policies are as follows: Term, Traditional, Universal Life (UL), Indexed Universal Life (IUL), Variable Universal Life (VUL).  
+4. As of January 1, 2025, LBL had 53,892 active policies in Cyberlife.  
+5. The Jira project used for the portal update implementation was LBL Technology Upgrades FY26 (https://jira.dxc.com/browse/LBLUPGRD26).  
+6. The Teams space used for the global project team collaboration was LBL Tech Upgrades (https://teams.micros oft.com/l/team/19%3A0640d640YcePQ2DHii0Z_OqckWLi1Ag7SGWF23sko_Pg1%40thread.tacv2/conversations?groupId=4800413a-6255-47f4-9881-9d9f4d0abd92&tenantId=g934f3571-550f-43cf-b09f-cd33138d086) which contained a general channel and additional channels PPLUS, Portal, and Production Readiness teams.  
+
+**Known Production Issues Being worked**  
+The following list are system defects which are open and being worked by your IT Team.  
+1. Call Center Team members based in the Philippines are unable to receive SMS texts with their Verification Code. This is a result of different country rules in place that impact Globe Telecom and Smart carriers. We are working with ISB Hosting to get a request submitted to address this but these requests are not processed quickly, based upon prior experience.  
+2. A few reports have come in from users who are indicating the Verification Code has expired before they received it. IT is looking into whether we can log the time the email is sent to ensure the system is sending the email promptly after the user has provided their password.  
+
+**System Release Notes**  
+Documentation for production moves can be found with each associated Change Request.  
+Refer to https://bpowiki.bps-cloud.us/index.php/Release_Notes_-_LBL_Portals_AWS_Assure_Platform_Versions for the documentation.  
+
+Retrieved from "https://bpowiki.bps-cloud.us/index.php?title=Frequently_Asked_Questions_(FAQ)_for_Support&oldid=9220"  
+
+This page was last edited on 26 June 2026, at 18:37.
+
