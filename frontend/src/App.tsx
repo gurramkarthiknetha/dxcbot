@@ -269,6 +269,7 @@ function App() {
       <main className="chat-container">
         <header className="chat-header">
           <div className="chat-status">
+            <div className="mobile-brand-icon">L</div>
             <span className="status-dot"></span>
             <span className="status-text">LBL Support Agent Online</span>
           </div>

@@ -7,13 +7,6 @@
   position: relative;
 }
 
-@media (max-width: 900px) {
-  .app-layout {
-    flex-direction: column;
-    height: 100dvh;
-  }
-}
-
 /* Sidebar Styling */
 .sidebar {
   width: 320px;
@@ -28,17 +21,6 @@
   gap: 24px;
   z-index: 10;
   transition: width 0.3s ease, background-color 0.3s ease;
-}
-
-@media (max-width: 900px) {
-  .sidebar {
-    width: 100%;
-    max-height: 220px;
-    padding: 16px;
-    border-right: none;
-    border-bottom: 1px solid var(--border);
-    flex-shrink: 0;
-  }
 }
 
 /* Logo & Branding */
@@ -60,6 +42,10 @@
   font-weight: bold;
   font-size: 20px;
   box-shadow: var(--shadow-md);
+}
+
+.mobile-brand-icon {
+  display: none;
 }
 
 .brand-text h2 {
@@ -305,6 +291,17 @@
 @media (max-width: 600px) {
   .welcome-suggestions {
     grid-template-columns: 1fr;
+  }
+  .messages-history {
+    padding: 16px 12px;
+    gap: 16px;
+  }
+  .welcome-container {
+    margin: 16px auto;
+    gap: 12px;
+  }
+  .welcome-container h3 {
+    font-size: 20px;
   }
 }
 
@@ -594,5 +591,29 @@
 
 .choice-action-btn:active {
   transform: translateY(0);
+}
+
+/* Hide Sidebar on Smaller Screen Viewports */
+@media (max-width: 900px) {
+  .app-layout {
+    height: 100dvh;
+  }
+  .sidebar {
+    display: none !important;
+  }
+  .mobile-brand-icon {
+    display: flex;
+    width: 28px;
+    height: 28px;
+    background: var(--gradient-brand);
+    border-radius: 8px;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: bold;
+    font-size: 14px;
+    margin-right: 4px;
+    box-shadow: var(--shadow-sm);
+  }
 }
 
