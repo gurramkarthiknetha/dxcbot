@@ -6,6 +6,7 @@ interface Message {
   sender: 'user' | 'bot';
   text: string;
   timestamp: string;
+  buttons?: string[];
 }
 
 function App() {
@@ -46,17 +47,28 @@ function App() {
       timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
     };
 
-    setMessages((prev) => [...prev, userMsg]);
+    // Keep track of the updated messages array to include in history (excluding the bot loading slot)
+    const updatedMessages = [...messages, userMsg];
+    setMessages(updatedMessages);
     setInput('');
     setIsLoading(true);
 
     try {
+      // Map history to the format expected by backend (sender, text)
+      const history = messages.map(msg => ({
+        sender: msg.sender,
+        text: msg.text
+      }));
+
       const res = await fetch(`${apiHost}/chat`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ message: textToSend }),
+        body: JSON.stringify({ 
+          message: textToSend,
+          history: history 
+        }),
       });
 
       if (!res.ok) {
@@ -70,6 +82,7 @@ function App() {
         sender: 'bot',
         text: data.reply || "I couldn't find that information in the LBL documentation. Please contact the LBL Service Center for further assistance.",
         timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
+        buttons: data.buttons || [],
       };
 
       setMessages((prev) => [...prev, botMsg]);
@@ -80,6 +93,7 @@ function App() {
         sender: 'bot',
         text: "I experienced an error connecting to the LBL Support Assistant service. Please verify the API server is running or contact the LBL Service Center.",
         timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
+        buttons: [],
       };
       setMessages((prev) => [...prev, errorMsg]);
     } finally {
@@ -94,6 +108,16 @@ function App() {
 
   const handleQuickAction = (question: string) => {
     handleSendMessage(question);
+  };
+
+  const handleButtonClick = (buttonText: string, messageId: string) => {
+    // Send message simulating user click
+    handleSendMessage(buttonText);
+    
+    // Clear/hide buttons from that message bubble so user cannot re-click them in history
+    setMessages((prev) =>
+      prev.map((msg) => (msg.id === messageId ? { ...msg, buttons: [] } : msg))
+    );
   };
 
   const toggleTheme = () => {
@@ -275,37 +299,30 @@ function App() {
               <div className="welcome-logo">L</div>
               <h3>Welcome to LBL Portal Support</h3>
               <p>
-                I am your documentation-based AI assistant. Ask me questions about portal registration, login support, MFA issues, email or phone updates, session timeouts, troubleshooting, and more.
+                I am your documentation-based AI assistant. To help me guide you to the right documentation, please select your role below:
               </p>
               
-              <div className="welcome-suggestions">
+              <div className="welcome-suggestions" style={{ gridTemplateColumns: 'repeat(3, 1fr)' }}>
                 <div 
                   className="suggestion-card"
-                  onClick={() => handleQuickAction("How do I change my password?")}
+                  onClick={() => handleQuickAction("Agent")}
                 >
-                  <h5>Password Reset</h5>
-                  <p>Check the steps and security rules for passwords.</p>
+                  <h5>Agent / Producer</h5>
+                  <p>Access the Agent Portal and client books.</p>
                 </div>
                 <div 
                   className="suggestion-card"
-                  onClick={() => handleQuickAction("Can I change my username?")}
+                  onClick={() => handleQuickAction("Owner")}
                 >
-                  <h5>Username Changes</h5>
-                  <p>Find out if usernames can be updated.</p>
+                  <h5>Policy Owner</h5>
+                  <p>Access Owner Portal and link policies.</p>
                 </div>
                 <div 
                   className="suggestion-card"
-                  onClick={() => handleQuickAction("How do I update my registered email?")}
+                  onClick={() => handleQuickAction("Home Office")}
                 >
-                  <h5>Email Updates</h5>
-                  <p>Learn how to change and verify your email.</p>
-                </div>
-                <div 
-                  className="suggestion-card"
-                  onClick={() => handleQuickAction("Can I delete my account?")}
-                >
-                  <h5>Delete Account</h5>
-                  <p>Understand the policy on account deletions.</p>
+                  <h5>Home Office</h5>
+                  <p>Access internal admin help & support tools.</p>
                 </div>
               </div>
             </div>
@@ -314,8 +331,25 @@ function App() {
               <div key={msg.id} className={`message-wrapper ${msg.sender}`}>
                 <div 
                   className="message-bubble"
-                  dangerouslySetInnerHTML={{ __html: msg.sender === 'bot' ? parseMessageText(msg.text) : parseMessageText(msg.text) }}
+                  dangerouslySetInnerHTML={{ __html: parseMessageText(msg.text) }}
                 />
+                
+                {/* Render Selection Option Buttons under bot response bubbles */}
+                {msg.sender === 'bot' && msg.buttons && msg.buttons.length > 0 && (
+                  <div className="message-action-buttons">
+                    {msg.buttons.map((btnText, index) => (
+                      <button
+                        key={`${msg.id}-btn-${index}`}
+                        type="button"
+                        className="choice-action-btn"
+                        onClick={() => handleButtonClick(btnText, msg.id)}
+                      >
+                        {btnText}
+                      </button>
+                    ))}
+                  </div>
+                )}
+
                 <span className="message-meta">
                   {msg.sender === 'bot' ? 'Assistant' : 'You'} • {msg.timestamp}
                 </span>

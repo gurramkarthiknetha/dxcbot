@@ -553,3 +553,46 @@
   color: var(--text-muted);
   text-align: center;
 }
+
+/* Choice Selection Buttons under bot messages */
+.message-action-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 8px;
+  margin-bottom: 2px;
+  max-width: 75%;
+  animation: slideUp 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@media (max-width: 600px) {
+  .message-action-buttons {
+    max-width: 90%;
+  }
+}
+
+.choice-action-btn {
+  background: var(--input-bg);
+  border: 1px solid var(--border);
+  color: var(--primary);
+  font-family: var(--sans);
+  font-size: 13px;
+  font-weight: 500;
+  padding: 8px 16px;
+  border-radius: 99px;
+  cursor: pointer;
+  box-shadow: var(--shadow-sm);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.choice-action-btn:hover {
+  background: var(--primary-light);
+  border-color: var(--primary);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-md);
+}
+
+.choice-action-btn:active {
+  transform: translateY(0);
+}
+
